@@ -33,8 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/",
-            "IPG\\Gateway\\": "vendor/gateway"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

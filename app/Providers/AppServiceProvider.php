@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Gateway\GatewayInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    private array $accepted_service;
+
     /**
      * Register any application services.
      *
@@ -14,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->bind(GatewayInterface::class, function () {
+            $type = isset(request()->gateway_type) ? ucfirst(request()->gateway_type) : ucfirst('saman');
+
+            return new ("App\Http\Controllers\Gateway\\{$type}");
+        });
     }
 
     /**
@@ -25,4 +33,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

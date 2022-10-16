@@ -189,7 +189,6 @@ return [
         /*
          * developer...
          */
-        \IPG\Gateway\Provider\GatewayProvider::class,
 
         /*
          * Application Service Providers...
@@ -215,7 +214,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        \IPG\Gateway\Facade\GatewayFacade::class
     ])->toArray(),
 
 ];
